@@ -23,14 +23,17 @@ class Board extends React.Component {
       turn : 'X'
     }
   }
+  changeTurn() {
+    if (this.state.turn == 'X') {
+      this.state.turn = 'O';
+    } else {
+      this.state.turn = 'X';
+    }
+  }
   handelClick(i) {
     if (this.state.squares[i] == null) {
-      this.state.squares[i]=turn;
-      if (this.state.turn == 'X') {
-        this.state.turn = 'O';
-      } else {
-        this.state.turn = 'X';
-      }
+      this.state.squares[i]=this.state.turn;
+      this.changeTurn();
     }
   }
   renderSquare(i) {
