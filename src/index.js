@@ -23,16 +23,45 @@ class Board extends React.Component {
       turn : 'X'
     }
   }
+
+  get state() {
+    return {
+      squares: this.squares,
+      turn: this.turn
+    }
+  }
+
+  getSquare(i) {
+    return this.state.squares[i];
+  }
+
+  setSquare(i,value) {
+    let state = this.state;
+    state.squares[i]=value;
+    this.setState(state);
+  }
+
+  get squares() {
+    return this.state.squares.slice();
+  }
+  get turn() {
+    return this.state.turn;
+  }
+  set turn(value) {
+    let state = this.state;
+    state.turn = value;
+    this.setState(state);
+  }
   changeTurn() {
-    if (this.state.turn == 'X') {
-      this.state.turn = 'O';
+    if (this.turn == 'X') {
+      this.turn = 'O';
     } else {
-      this.state.turn = 'X';
+      this.turn = 'X';
     }
   }
   handelClick(i) {
-    if (this.state.squares[i] == null) {
-      this.state.squares[i]=this.state.turn;
+    if (this.getSquare(i) == null) {
+      this.setSquare(i)=this.turn;
       this.changeTurn();
     }
   }
