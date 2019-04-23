@@ -47,7 +47,7 @@ class Board extends React.Component {
   }
   handelClick(i) {
     if (this.getSquare(i) == null) {
-      this.setSquare(i,this.turn);
+      this.setSquare(i,this.state.turn);
       this.changeTurn();
     }
   }
