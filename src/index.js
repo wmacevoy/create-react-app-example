@@ -32,7 +32,7 @@ class Board extends React.Component {
   setSquare(i,value) {
     let squares = this.state.squares.slice();
     squares[i]=value;
-    this.setState({'squares' : squares});
+    this.setState({squares : squares});
     console.log('new squares: ' + squares);
     
   }
@@ -44,7 +44,7 @@ class Board extends React.Component {
       turn = 'X';
     }
     console.log('new turn: ' + turn);
-    this.setState({'turn': turn});
+//     this.setState({'turn': turn});
   }
   handelClick(i) {
     if (this.getSquare(i) == null) {
