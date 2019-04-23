@@ -39,6 +39,7 @@ class Board extends React.Component {
   setSquare(i,value) {
     let state = this.cloneState();
     state.squares[i]=value;
+    console.log("setSquare(" + i+ "," + value + ") state=" + JSON.stringify(state));
     this.setState(state);
   }
 
