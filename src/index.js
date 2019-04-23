@@ -29,8 +29,8 @@ class Board extends React.Component {
   windir(who, dir) {
     let n = 0
     for (let i = 0; i < 3; ++i) {
-      let r = dirs.r0 + i * dirs.dr;
-      let c = dirs.c0 + i * dirs.dc;
+      let r = dir.r0 + i * dir.dr;
+      let c = dir.c0 + i * dir.dc;
       let rc = this.state.squares[3 * r + c];
       if (rc == who) {
         ++n;
