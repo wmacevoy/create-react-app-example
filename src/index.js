@@ -41,19 +41,19 @@ class Board extends React.Component {
 
   win(player) {
     for (let row = 0; row < 3; ++row) {
-      if (windir(player, { r0: row, dr: 0, c0: 0, dc: 1 })) {
+      if (this.windir(player, { r0: row, dr: 0, c0: 0, dc: 1 })) {
         return true; // column
       }
     }
     for (let col = 0; col < 3; ++col) {
-      if (windir(player, { r0: 0, dr: 1, c0: col, dc: 0 })) {
+      if (this.windir(player, { r0: 0, dr: 1, c0: col, dc: 0 })) {
         return true; // column
       }
     }
-    if (windir(player, { r0: 0, dr: 1, c0: 0, dc: 1 })) {
+    if (this.windir(player, { r0: 0, dr: 1, c0: 0, dc: 1 })) {
       return true; // diagonal
     }
-    if (windir(player, { r0: 0, dr: 1, c0: 2, dc: -1 })) {
+    if (this.windir(player, { r0: 0, dr: 1, c0: 2, dc: -1 })) {
       return true; // off diagonal
     }
     return false;
