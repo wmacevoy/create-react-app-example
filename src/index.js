@@ -18,13 +18,13 @@ class Square extends React.Component {
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.setState = {
+    this.state = {
       squares : Array(9).fill(null),
       turn : 'X'
     }
   }
 
-  get state() {
+  cloneState() {
     return {
       squares: this.squares,
       turn: this.turn
@@ -36,7 +36,7 @@ class Board extends React.Component {
   }
 
   setSquare(i,value) {
-    let state = this.state;
+    let state = this.cloneState();
     state.squares[i]=value;
     this.setState(state);
   }
@@ -48,7 +48,7 @@ class Board extends React.Component {
     return this.state.turn;
   }
   set turn(value) {
-    let state = this.state;
+    let state = this.cloneState();
     state.turn = value;
     this.setState(state);
   }
