@@ -43,14 +43,16 @@ class Board extends React.Component {
       turn = 'X';
     }
     console.log('new turn: ' + turn);
-//     this.setState({'turn': turn});
+    this.setState({'turn': turn});
   }
+
   handelClick(i) {
     if (this.getSquare(i) == null) {
       this.setSquare(i,this.state.turn);
       this.changeTurn();
     }
   }
+
   renderSquare(i) {
     return <Square value={this.state.squares[i]} 
                    onClick={()=>this.handelClick(i)} />;
