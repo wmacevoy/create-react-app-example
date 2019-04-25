@@ -90,16 +90,7 @@ class Board extends React.Component {
   handelClick(i) {
     if (this.getSquare(i) == null) {
       this.setSquare(i, this.state.turn);
-      if (this.win(this.state.turn)) {
-        alert('you won!');
-        this.setState({
-          squares: Array(9).fill(null),
-          turn: 'X',
-          won: null
-        })
-      } else {
-        this.changeTurn();
-      }
+      this.changeTurn();
     }
   }
 
@@ -108,9 +99,17 @@ class Board extends React.Component {
       onClick={() => this.handelClick(i)} />;
   }
 
-  render() {
-    const status = 'Next player R1: ' + this.state.turn;
-
+  rende() {
+    let status;
+    if (this.win('X')) {
+      status = 'X won!';
+      this.setState({'won': 'X'});
+    } else if (this.win('O')) {
+      status = 'O won!';
+      this.setState({'won': 'O'});
+    } else {
+      status = 'Next player: ' + this.state.turn;
+    }
     return (
       <div>
         <div className="status">{status}</div>
