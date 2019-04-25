@@ -33,26 +33,33 @@ class Board extends React.Component {
       let c = dir.c0 + i * dir.dc;
       let rc = this.state.squares[3 * r + c];
       if (rc == who) {
+        console.log("r=" + r + "c=" + c + " is mine");
         ++n;
       }
+      console.log("r=" + r + "c=" + c + " is " + rc);
     }
     return n == 3;
   }
 
   win(player) {
     for (let row = 0; row < 3; ++row) {
+      console.log("check row " + row);
       if (this.windir(player, { r0: row, dr: 0, c0: 0, dc: 1 })) {
-        return true; // column
+        return true; // row
       }
     }
     for (let col = 0; col < 3; ++col) {
+      console.log("check col " + col);
       if (this.windir(player, { r0: 0, dr: 1, c0: col, dc: 0 })) {
         return true; // column
       }
     }
+    console.log("check diagonal");
     if (this.windir(player, { r0: 0, dr: 1, c0: 0, dc: 1 })) {
       return true; // diagonal
     }
+
+    console.log("check off diagonal");
     if (this.windir(player, { r0: 0, dr: 1, c0: 2, dc: -1 })) {
       return true; // off diagonal
     }
