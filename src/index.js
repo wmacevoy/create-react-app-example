@@ -99,7 +99,7 @@ class Board extends React.Component {
       onClick={() => this.handelClick(i)} />;
   }
 
-  rende() {
+  render() {
     let status;
     if (this.win('X')) {
       status = 'X won!';
